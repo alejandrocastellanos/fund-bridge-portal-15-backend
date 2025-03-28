@@ -12,8 +12,8 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
-
+ALLOWED_HOSTS = ['*', 'localhost:8080']
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
