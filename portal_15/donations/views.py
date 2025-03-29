@@ -18,7 +18,7 @@ class DonationCreateView(APIView):
 
 class TotalDonationAmountView(APIView):
     def get(self, request):
-        total_amount = Donation.objects.aggregate(total=Sum('donation_amount'))['total'] or 0
+        total_amount = Donation.objects.filter(is_approved=True).aggregate(total=Sum('donation_amount'))['total'] or 0
         return Response({"total_donation_amount": total_amount}, status=status.HTTP_200_OK)
 
 class LastFiveDonationsView(ListAPIView):
