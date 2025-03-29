@@ -12,8 +12,8 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = ['https://fund-bridge-portal-15-backend.onrender.com/', '*', 'localhost:8080']
-CSRF_TRUSTED_ORIGINS = ['https://fund-bridge-portal-15-backend.onrender.com/', 'localhost:8080', '*']
+ALLOWED_HOSTS = ['fund-bridge-portal-15-backend.onrender.com', 'localhost:8080']
+CSRF_TRUSTED_ORIGINS = ['https://fund-bridge-portal-15-backend.onrender.com', 'http://localhost:8080']
 CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
