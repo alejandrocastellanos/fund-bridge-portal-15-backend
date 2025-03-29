@@ -22,5 +22,5 @@ class TotalDonationAmountView(APIView):
         return Response({"total_donation_amount": total_amount}, status=status.HTTP_200_OK)
 
 class LastFiveDonationsView(ListAPIView):
-    queryset = Donation.objects.filter(is_public=True).order_by('-created_at')[:5]  # Get the last 5 donations
+    queryset = Donation.objects.filter(is_public=True, is_approved=True).order_by('-created_at')[:5]  # Get the last 5 donations
     serializer_class = LastDonationsSerializer
