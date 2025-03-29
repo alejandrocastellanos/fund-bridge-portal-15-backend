@@ -15,6 +15,9 @@ DEBUG = env.bool('DEBUG', default=True)
 ALLOWED_HOSTS = ['fund-bridge-portal-15-backend.onrender.com', 'localhost', '127.0.0.1', 'alejandrocastellanos.github.io']
 CSRF_TRUSTED_ORIGINS = ['https://fund-bridge-portal-15-backend.onrender.com', 'http://localhost:8080',
                         'http://127.0.0.1:8000/', 'https://alejandrocastellanos.github.io']
+CORS_ALLOWED_ORIGINS = [
+    'https://alejandrocastellanos.github.io',
+]
 CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
@@ -26,11 +29,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'donations',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
